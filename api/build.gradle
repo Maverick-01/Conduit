@@ -10,10 +10,13 @@ java {
 }
 
 dependencies {
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    //using api make retrofit available to app level
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
     implementation "com.squareup.moshi:moshi:$moshi_version"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
 
     //test
     testImplementation 'junit:junit:4.13.2'

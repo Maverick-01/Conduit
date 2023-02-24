@@ -1,4 +1,4 @@
-package com.maverick.api.models
+package com.maverick.api.models.entities
 
 
 import com.squareup.moshi.Json
