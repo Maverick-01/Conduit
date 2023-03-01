@@ -1,10 +1,12 @@
 package com.maverick.conduit.data
 
 import com.maverick.api.ConduitClient
-import com.maverick.api.services.ConduitAPI
 
 object ArticlesRepo {
-    val api = ConduitClient().api
+    val api = ConduitClient.publicApi
+    val authAPI = ConduitClient.authApi
 
-    suspend fun getGlobalArticles() = api.getArticles()
+    suspend fun getGlobalArticles() = api.getArticles().body()?.articles
+
+    suspend fun getMyFeed() = authAPI.getFeedArticles().body()?.articles
 }

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.maverick.conduit.databinding.FragmentFeedBinding
 
-class GlobalFeedFragment : Fragment() {
+class MyFeedFragment: Fragment() {
     private var binding: FragmentFeedBinding? = null
     private lateinit var viewModel: FeedViewModel
     private lateinit var adapter: ArticleFeedAdapter
@@ -30,7 +30,7 @@ class GlobalFeedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.fetchGlobalFeed()
+        viewModel.fetchMyFeed()
         viewModel.feed.observe({ lifecycle }){
             adapter.submitList(it)
         }
