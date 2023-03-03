@@ -1,6 +1,7 @@
 package com.maverick.api.services
 
 import com.maverick.api.models.entities.UserUpdateData
+import com.maverick.api.models.requests.UserUpdateRequest
 import com.maverick.api.models.responses.ArticleResponse
 import com.maverick.api.models.responses.ArticlesResponse
 import com.maverick.api.models.responses.ProfileResponse
@@ -9,12 +10,12 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface ConduitAuthAPI {
-    @GET("users")
+    @GET("user")
     suspend fun getCurrentUser(): Response<UserResponse>
 
-    @PUT("users")
+    @PUT("user")
     suspend fun updateCurrentUser(
-        @Body userUpdateData: UserUpdateData
+        @Body userUpdateData: UserUpdateRequest
     ): Response<UserResponse>
 
     @GET("profile/{username}")

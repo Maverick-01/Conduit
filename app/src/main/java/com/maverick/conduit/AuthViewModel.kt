@@ -8,21 +8,38 @@ import com.maverick.api.models.entities.User
 import com.maverick.conduit.data.UserRepo
 import kotlinx.coroutines.launch
 
-class AuthViewModel:ViewModel() {
+class AuthViewModel : ViewModel() {
     private val _user = MutableLiveData<User?>()
     val user: LiveData<User?> = _user
 
-    fun login(email:String,password:String){
+    fun getCurrentUser(token: String) = viewModelScope.launch {
+        UserRepo.getCurrentUser(token)?.let {
+            _user.postValue(it)
+        }
+    }
+
+    fun login(email: String, password: String) {
         viewModelScope.launch {
-            UserRepo.login(email,password)?.let {
+            UserRepo.login(email, password)?.let {
                 _user.postValue(it)
             }
         }
     }
 
-    fun signup(username:String,email: String,password: String) = viewModelScope.launch {
+    fun signup(username: String, email: String, password: String) = viewModelScope.launch {
         UserRepo.signup(username, email, password)?.let {
             _user.postValue(it)
         }
+    }
+
+    fun update(bio: String?, username: String?, email: String?, password: String?, image: String?) =
+        viewModelScope.launch {
+            UserRepo.updateUser(bio, username, email, password, image).let {
+                _user.postValue(it)
+            }
+        }
+
+    fun logout() {
+        _user.postValue(null)
     }
 }
