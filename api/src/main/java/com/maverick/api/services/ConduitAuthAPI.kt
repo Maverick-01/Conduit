@@ -1,6 +1,7 @@
 package com.maverick.api.services
 
 import com.maverick.api.models.entities.UserUpdateData
+import com.maverick.api.models.requests.UpsertArticleRequest
 import com.maverick.api.models.requests.UserUpdateRequest
 import com.maverick.api.models.responses.ArticleResponse
 import com.maverick.api.models.responses.ArticlesResponse
@@ -45,4 +46,9 @@ interface ConduitAuthAPI {
     suspend fun unFavoriteArticle(
         @Path("slug") slug: String
     ): Response<ArticleResponse>
+
+    @POST("articles")
+    suspend fun createArticle(
+        @Body article: UpsertArticleRequest
+    ) :Response<ArticleResponse>
 }

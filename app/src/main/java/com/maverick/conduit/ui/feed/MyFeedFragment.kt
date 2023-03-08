@@ -1,9 +1,11 @@
 package com.maverick.conduit.ui.feed
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -11,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.maverick.conduit.R
 import com.maverick.conduit.databinding.FragmentFeedBinding
+import com.maverick.conduit.ui.article.CreateArticleFragment
 
 class MyFeedFragment : Fragment() {
     private var binding: FragmentFeedBinding? = null
@@ -28,6 +31,10 @@ class MyFeedFragment : Fragment() {
         binding = FragmentFeedBinding.inflate(inflater, container, false)
         binding?.feedRecyclerView?.layoutManager = LinearLayoutManager(context)
         binding?.feedRecyclerView?.adapter = adapter
+//        binding?.createArticleFab?.setOnClickListener {
+//            openCreateArticle()
+//            Toast.makeText(requireContext(), "clicked", Toast.LENGTH_SHORT).show()
+//        }
         return binding?.root
     }
 
@@ -37,13 +44,16 @@ class MyFeedFragment : Fragment() {
         viewModel.feed.observe({ lifecycle }) {
             adapter.submitList(it)
         }
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null //used to save from memory leak.
     }
+
+//    private fun openCreateArticle() {
+//        findNavController().navigate(R.id.action_global_feed_create_article)
+//    }
 
     private fun openArticle(articleId: String) {
         findNavController().navigate(

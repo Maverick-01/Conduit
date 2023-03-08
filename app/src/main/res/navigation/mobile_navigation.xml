@@ -18,6 +18,12 @@
                 android:name="@string/arg_article_id"
                 app:argType="string" />
         </action>
+<!--        <action-->
+<!--            android:id="@+id/action_global_feed_create_article"-->
+<!--            app:destination="@id/nav_create_article"-->
+<!--            app:popUpTo="@id/nav_feed">-->
+
+<!--        </action>-->
     </fragment>
     <fragment
         android:id="@+id/nav_my_feed"
@@ -50,4 +56,10 @@
         android:id="@+id/nav_article"
         android:name="com.maverick.conduit.ui.article.ArticleFragment"
         tools:layout="@layout/fragment_article" />
+
+    <fragment
+        android:id="@+id/nav_create_article"
+        android:name="com.maverick.conduit.ui.article.CreateArticleFragment"
+        tools:layout="@layout/fragment_create_article" />
+
 </navigation>
