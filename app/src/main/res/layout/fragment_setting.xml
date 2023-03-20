@@ -9,6 +9,7 @@
         android:id="@+id/image_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/ic_custom_border"
         android:hint="URL of profile image"
         android:inputType="textUri" />
@@ -17,6 +18,7 @@
         android:id="@+id/username_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/ic_custom_border"
         android:hint="username"
         android:inputType="text" />
@@ -25,16 +27,18 @@
         android:id="@+id/bio_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/ic_custom_border"
         android:gravity="bottom"
         android:hint="Short bio"
         android:inputType="textMultiLine"
-        android:lines="5"/>
+        android:lines="5" />
 
     <EditText
         android:id="@+id/email_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/ic_custom_border"
         android:hint="Email ID"
         android:inputType="textEmailAddress" />
@@ -43,6 +47,7 @@
         android:id="@+id/password_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/ic_custom_border"
         android:hint="New Password"
         android:inputType="textPassword" />
